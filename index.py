@@ -1,79 +1,254 @@
+import streamlit as st
+import pandas as pd
+
+st.set_page_config(layout="wide")
 triageSystem = [
     {
-        'Bedside nurse': "Adriana Juárez",
-        'Bed': 3, 
-        'Arrival time': "09:34",
-        'Length stay': "",
-        'Health risk indicators': "",
-        'Patient name': "Juan Sanchéz",
-        'Gender': "H",
-        'Age': 28, 
-        'Medical record number': 123123123, 
-        'Chief complaint': "Abdominal pain",
-        'Resident name': "",
-        'Attending name': "", 
-        'Consultation': "", 
-        'Laboratory notification': "",
-        'Radiology notification': "", 
-        'Discharge': "",
-        'Comments': ""
+        'RN': "Adriana Juárez",
+        'BED': 3, 
+        'ARR': "09:34",
+        'LOS': "",
+        'HRI': "",
+        'NAME': "Juan Sanchéz",
+        'S': "H",
+        'AGE': 28, 
+        'MRN': 123123123, 
+        'COMPLAINT': "Abdominal pain",
+        'MD': "",
+        'AT': "", 
+        'CONSULT': "", 
+        'LR': "",
+        'RD': "", 
+        'DCRN': "",
+        'RLAN': ""
     },
     {
-        'Bedside nurse': "Mariano Rivera",
-        'Bed': 8, 
-        'Arrival time': "10:05",
-        'Length stay': "",
-        'Health risk indicators': "",
-        'Patient name': "María Soriano",
-        'Gender': "M",
-        'Age': 35, 
-        'Medical record number': 321321321, 
-        'Chief complaint': "Chest pain",
-        'Resident name': "",
-        'Attending name': "", 
-        'Consultation': "", 
-        'Laboratory notification': "",
-        'Radiology notification': "", 
-        'Discharge': "",
-        'Comments': ""
+        'RN': "Mariano Rivera",
+        'BED': 8, 
+        'ARR': "10:05",
+        'LOS': "",
+        'HRI': "",
+        'NAME': "María Soriano",
+        'S': "M",
+        'AGE': 35, 
+        'MRN': 321321321, 
+        'COMPLAINT': "Chest pain",
+        'MD': "",
+        'AT': "", 
+        'CONSULT': "", 
+        'LR': "",
+        'RD': "", 
+        'DCRN': "",
+        'RLAN': ""
     },
     {
-        'Bedside nurse': "Fernando Rivas",
-        'Bed': 4, 
-        'Arrival time': "10:37",
-        'Length stay': "",
-        'Health risk indicators': "",
-        'Patient name': "Marín Martínez",
-        'Gender': "H",
-        'Age': 25, 
-        'Medical record number': 3434343434, 
-        'Chief complaint': "Stroke",
-        'Resident name': "",
-        'Attending name': "", 
-        'Consultation': "", 
-        'Laboratory notification': "",
-        'Radiology notification': "", 
-        'Discharge': "",
-        'Comments': ""
+        'RN': "Fernando Rivas",
+        'BED': 4, 
+        'ARR': "10:37",
+        'LOS': "",
+        'HRI': "",
+        'NAME': "Marín Martínez",
+        'S': "H",
+        'AGE': 25, 
+        'MRN': 3434343434, 
+        'COMPLAINT': "Stroke",
+        'MD': "",
+        'AT': "", 
+        'CONSULT': "", 
+        'LR': "",
+        'RD': "", 
+        'DCRN': "",
+        'RLAN': ""
     },
     {
-        'Bedside nurse': "Adriana Juárez",
-        'Bed': 7, 
-        'Arrival time': "11:23",
-        'Length stay': "",
-        'Health risk indicators': "",
-        'Patient name': "Fernando Juárez",
-        'Gender': "H",
-        'Age': 30, 
-        'Medical record number': 565656565, 
-        'Chief complaint': "Cold",
-        'Resident name': "",
-        'Attending name': "", 
-        'Consultation': "", 
-        'Laboratory notification': "",
-        'Radiology notification': "", 
-        'Discharge': "",
-        'Comments': ""
+        'RN': "Adriana Juárez",
+        'BED': 7, 
+        'ARR': "11:23",
+        'LOS': "",
+        'HRI': "",
+        'NAME': "Fernando Juárez",
+        'S': "H",
+        'AGE': 30, 
+        'MRN': 565656565, 
+        'COMPLAINT': "Cold",
+        'MD': "",
+        'AT': "", 
+        'CONSULT': "", 
+        'LR': "",
+        'RD': "", 
+        'DCRN': "",
+        'RLAN': ""
+    },
+     {
+            'RN': "Fernando Rivas",
+            'BED': 4, 
+            'ARR': "10:37",
+            'LOS': "",
+            'HRI': "",
+            'NAME': "Marín Martínez",
+            'S': "H",
+            'AGE': 25, 
+            'MRN': 3434343434, 
+            'COMPLAINT': "Stroke",
+            'MD': "",
+            'AT': "", 
+            'CONSULT': "", 
+            'LR': "",
+            'RD': "", 
+            'DCRN': "",
+            'RLAN': ""
+        },
+ {
+        'RN': "Fernando Rivas",
+        'BED': 4, 
+        'ARR': "10:37",
+        'LOS': "",
+        'HRI': "",
+        'NAME': "Marín Martínez",
+        'S': "H",
+        'AGE': 25, 
+        'MRN': 3434343434, 
+        'COMPLAINT': "Stroke",
+        'MD': "",
+        'AT': "", 
+        'CONSULT': "", 
+        'LR': "",
+        'RD': "", 
+        'DCRN': "",
+        'RLAN': ""
+    },
+ {
+        'RN': "Fernando Rivas",
+        'BED': 4, 
+        'ARR': "10:37",
+        'LOS': "",
+        'HRI': "",
+        'NAME': "Marín Martínez",
+        'S': "H",
+        'AGE': 25, 
+        'MRN': 3434343434, 
+        'COMPLAINT': "Stroke",
+        'MD': "",
+        'AT': "", 
+        'CONSULT': "", 
+        'LR': "",
+        'RD': "", 
+        'DCRN': "",
+        'RLAN': ""
+    },
+ {
+        'RN': "Fernando Rivas",
+        'BED': 4, 
+        'ARR': "10:37",
+        'LOS': "",
+        'HRI': "",
+        'NAME': "Marín Martínez",
+        'S': "H",
+        'AGE': 25, 
+        'MRN': 3434343434, 
+        'COMPLAINT': "Stroke",
+        'MD': "",
+        'AT': "", 
+        'CONSULT': "", 
+        'LR': "",
+        'RD': "", 
+        'DCRN': "",
+        'RLAN': ""
+    },
+ {
+        'RN': "Fernando Rivas",
+        'BED': 4, 
+        'ARR': "10:37",
+        'LOS': "",
+        'HRI': "",
+        'NAME': "Marín Martínez",
+        'S': "H",
+        'AGE': 25, 
+        'MRN': 3434343434, 
+        'COMPLAINT': "Stroke",
+        'MD': "",
+        'AT': "", 
+        'CONSULT': "", 
+        'LR': "",
+        'RD': "", 
+        'DCRN': "",
+        'RLAN': ""
+    },
+ {
+        'RN': "Fernando Rivas",
+        'BED': 4, 
+        'ARR': "10:37",
+        'LOS': "",
+        'HRI': "",
+        'NAME': "Marín Martínez",
+        'S': "H",
+        'AGE': 25, 
+        'MRN': 3434343434, 
+        'COMPLAINT': "Stroke",
+        'MD': "",
+        'AT': "", 
+        'CONSULT': "", 
+        'LR': "",
+        'RD': "", 
+        'DCRN': "",
+        'RLAN': ""
+    },
+ {
+        'RN': "Fernando Rivas",
+        'BED': 4, 
+        'ARR': "10:37",
+        'LOS': "",
+        'HRI': "",
+        'NAME': "Marín Martínez",
+        'S': "H",
+        'AGE': 25, 
+        'MRN': 3434343434, 
+        'COMPLAINT': "Stroke",
+        'MD': "",
+        'AT': "", 
+        'CONSULT': "", 
+        'LR': "",
+        'RD': "", 
+        'DCRN': "",
+        'RLAN': ""
+    },
+ {
+        'RN': "Fernando Rivas",
+        'BED': 4, 
+        'ARR': "10:37",
+        'LOS': "",
+        'HRI': "",
+        'NAME': "Marín Martínez",
+        'S': "H",
+        'AGE': 25, 
+        'MRN': 3434343434, 
+        'COMPLAINT': "Stroke",
+        'MD': "",
+        'AT': "", 
+        'CONSULT': "", 
+        'LR': "",
+        'RD': "", 
+        'DCRN': "",
+        'RLAN': ""
+    },
+ {
+        'RN': "Fernando Rivas",
+        'BED': 4, 
+        'ARR': "10:37",
+        'LOS': "",
+        'HRI': "",
+        'NAME': "Marín Martínez",
+        'S': "H",
+        'AGE': 25, 
+        'MRN': 3434343434, 
+        'COMPLAINT': "Stroke",
+        'MD': "",
+        'AT': "", 
+        'CONSULT': "", 
+        'LR': "",
+        'RD': "", 
+        'DCRN': "",
+        'RLAN': ""
     }
 ]
 
@@ -95,15 +270,26 @@ patient = {
     'Radiology notification': "", 
     'Discharge': "",
     'Comments': ""
-} 
+}
+
+st.title("EMERGENCY ROOM CONTROL BOARD", )
+st.dataframe(triageSystem)
+
+col1, col2 = st.columns(2, gap="small")
+with col1: 
+    st.button("Add a patient record")
+with col2:
+    st.button("Edit a patient record")
 
 
+"""
 #patient[''] = input("")
 for column in patient: 
     if(column != None):
         print(patient[column])
 
 def seeAllPatientsInfo():
+    st.dataframe(triageSystem)
     for patient in triageSystem: 
         for column in patient: 
             if (patient[column] != ""): 
@@ -132,7 +318,7 @@ def editPatientRecord():
                     
                 while(True): 
                     print("Which data do you want to edit?")
-                    print("""Write the name of the data you want to add/change:
+                    print("Write the name of the data you want to add/change:
                         1. Bedside nurse
                         2. Bed
                         3. Arrival time
@@ -151,7 +337,7 @@ def editPatientRecord():
                         16. Discharge
                         17. Comments
                         18. Exit
-                    """)
+                    ")
                     chosenOption = input()
                     goOn = switch(chosenOption)
                     if(goOn == False):
@@ -211,16 +397,16 @@ def switch(chosenOption):
         print('Chose an option available.')
 
 while(True):
-    print("What do you want to do?:")
-    print("""Write one option: 
+    print("What do you want to do?")
+    print("Write one option: 
        1. See all patients information. 
        2. Add a patient record.
        3. Edit a patient's record. 
        4. Exit. 
-    """)
+    ")
     chosenOption = int(input("Write a number: "))
     goOn = switch(chosenOption)
     if (goOn == False): 
         print('You exited the program.')
         break
-
+"""
